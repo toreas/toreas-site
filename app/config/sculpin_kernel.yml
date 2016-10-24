@@ -1,0 +1,13 @@
+sculpin:
+    raw:
+        - "files/.*"
+sculpin_content_types:
+    posts:
+        permalink: post/:title/
+    book_1_chapters:
+        singular_name: book_1_chapter
+        permalink: book-1-title/:title/
+        type: path
+        layout: chapter.html
+        # For testing
+        enabled: true

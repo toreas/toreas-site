@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>{% block title %}{{ page.title }}{% endblock %} | {{ site.title }}</title>
+    {% block head_meta %}
+    {% endblock %}
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+          integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link href="{{ site.url }}/css/style.css" rel="stylesheet" type="text/css"/>
+
+    {% block head_styles %}
+    {% endblock %}
+
+    {% block head_scripts %}
+    {% endblock %}
+</head>
+<body>
+
+<div class="container">
+    <header>
+            <nav>
+                <ul class="nav nav-pills pull-xs-right">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ site.url }}/book-1-title/">Book 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ site.url }}/about-author/">About author</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ site.url }}/page/2/">Posts Archive</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3><a href="{{ site.url }}/">{{ site.title }}</a></h3>
+    </header>
+
+    <div class="content">
+        {% block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
+    </div>
+
+    <footer class="footer">
+        <p>{{ site.title }} - <a href="{{ site.url }}/license/">Licensed under Creative Commons License Zero</a></p>
+    </footer>
+
+</div>
+
+<!-- jQuery first, then Bootstrap JS. -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"
+        integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7"
+        crossorigin="anonymous"></script>
+
+{% block scripts %}
+{% endblock %}
+
+{% if site.enable_google_tag_manager %}
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-W99SBK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W99SBK');</script>
+<!-- End Google Tag Manager -->
+
+{% endif %}
+
+{% block scripts_after %}
+{% endblock %}
+
+</body>
+</html>

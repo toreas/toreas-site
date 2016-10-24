@@ -1,0 +1,21 @@
+language: php
+
+php:
+  - '7.0'
+
+install:
+  - composer install
+
+script: vendor/sculpin/sculpin/bin/sculpin --env=prod generate
+
+deploy:
+  provider: s3
+  access_key_id:
+    secure: "mGCLwNghO1dP1VlJly31na+RrIXXKMon7BVUAOcNeCb8d0GwSdRe+q4zehQa8cGTuqwhrdL2+kszelW6F0Wv7g6VJ2fznQwTYSujNgrEJEdVdbT2HVTXhAcxM+eRgqt2hDiUXDciI7oy+yuSA95370c+jA61i+yYolKT9NL5wC2swUowIa3dxNr1P7TcGSAfVJdiLmWJtBx+MsiymX09KdrLFj0RGKqlZHVM9CA3YwlOw/jebUyzl7dsm/DDX7MXkF1pRakVCAicZWlD5oYtCrZU0PIXbzsM78O1T7N+N9kBWGxJnA2G2n5P2kLNHN/qOaKnNraL5/Zt9xQh4uu9ppu3sK0LKVTOv2yNu1mTRe9kyzSe15YAq8ckrBWbgqKCWrqnEDN5T9E40Mwkg57CI4c2dUU23ktVRqy1TX5hTXy5alTWX+Zwa73bwbJLs/eu24szDIJWtsI7NzXsNC1qCEmuP77vMpRJ93lNW1kGtXWE/WCwhpBJ2yf6yS+hECzlMqcCXgM9EZavBLpesWZOa0BtbfDRXpNldXNHbQ3v0LgkCYUwLq+nKFHJBVXvxzcJX50WUPZHZhyVgxlIYCDTbB99+0JGGt1fCLvnB1E2ZoNisA+u2R9SRtgCSivfFPJOi5QZ4doBDi/0mIqdU1dkgUa4tSZUw5NXa2ydoya5/jU="
+  secret_access_key:
+    secure: "A8dGzOH4kkMrgJVnEKy3usVWZjUi+OuylBxr2fY9YAwS9RMUxWx+CsfRmYOT4OYV99My/UghegovNQZUB7+fC1+905UGIPYGOk5G1HMSRhy+2xQaVPsj/ajf99Dp3lshg8TpW+A58sASjFIRrpcT5iPqc0bt9w6GH2rC5RbMZGrYsAO9rwo1KxRwl4FuUN73STfrcJ29jwi8EGANqtzWEOhQeoJHlCZni2rE+x48lVsiHGkwXsUEYoRsqiGCW34sMvcrg1r8EwM3X0puflyJs50cdVq38FqpyS7Jmza0XHLH1ebeL9P2Ex1mSBWWtgSnEqDaQEWkZf/ST/jWqNN6gCZfDHwfiC8YJgOMayiJEUEQMDCEvUqpQlgmu0f/vBnZBJnclBqPQWzJQH7k7S8EbYC60XCcQswb+Ozvdy/soXKKj1jueHGXaTPGUQ+WKGyCnuBnEV2v9e90mXp6oPtLBDjW+wkOtXJUYjMhV5dlsiufKATk7krMbA1vAMAD7/Pm45QSkiR+mGs5xuQbUUg0cICb8qJdsO9PpnKCSU7HFWQguLUgJEI/+iNC4swv1Rwx1jA9uUtng0OGJbJYpULWJt7hNmt58/G+Y0QuRcYwRJqdaAkV6iZuFSkVUD3eii5JC43r6clEzuC2ik2IQ7W1mJv+Pt6Q3ez27eRn08rwOIo="
+  bucket: "toreas-site-prod"
+  skip_cleanup: true
+  local_dir: output_prod
+  on:
+    branch: master
